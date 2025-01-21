@@ -251,3 +251,37 @@ document.getElementById("savePdfBtn").addEventListener("click", function () {
     // Save the PDF
     doc.save("Sheryl_Sandberg_Resume.pdf");
 });
+
+
+
+
+
+const toggleDarkMode = () => {
+    const body = document.body;
+    const icon = document.getElementById('theme-icon');
+    
+    body.classList.toggle('dark-mode');
+    
+    if (body.classList.contains('dark-mode')) {
+        icon.classList.remove('fa-moon');
+        icon.classList.add('fa-sun');
+    } else {
+        icon.classList.remove('fa-sun');
+        icon.classList.add('fa-moon');
+    }
+
+    // Sauvegarder l'état dans localStorage
+    localStorage.setItem('darkMode', body.classList.contains('dark-mode') ? 'enabled' : 'disabled');
+};
+
+// Restaurer l'état du thème au chargement
+window.onload = () => {
+    if (localStorage.getItem('darkMode') === 'enabled') {
+        document.body.classList.add('dark-mode');
+        document.getElementById('theme-icon').classList.remove('fa-moon');
+        document.getElementById('theme-icon').classList.add('fa-sun');
+    }
+};
+
+
+

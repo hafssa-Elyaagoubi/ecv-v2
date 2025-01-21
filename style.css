@@ -1,12 +1,37 @@
+:root {
+    --primary-color: #556b2f;
+    --secondary-color: #c6a961;
+    --background-color: #f8f5f2;
+    --text-color: #333;
+    --card-bg: #ffffff;
+    --link-hover: #f8f5f2;
+    --shadow-color: rgba(0, 0, 0, 0.1);
+    --footer-bg: linear-gradient(90deg, #556b2f, #c6a961);
+}
+
+.dark-mode {
+    --primary-color: #c6a961;
+    --secondary-color: #556b2f;
+    --background-color: #1a1a1a;
+    --text-color: #f8f5f2;
+    --card-bg: #2b2b2b;
+    --link-hover: #c6a961;
+    --shadow-color: rgba(255, 255, 255, 0.1);
+    --footer-bg: linear-gradient(90deg, #c6a961, #556b2f);
+}
+
+
+
 /* General style */
 body {
     font-family: 'Poppins', sans-serif;
-    background: linear-gradient(135deg, #f8f5f2, #ffffff);
-    color: #333;
+    background: var(--background-color);
+    color: var(--text-color);
     margin: 0;
     padding: 0;
     scroll-behavior: smooth;
-    margin-left: 280px; 
+    margin-left: 280px;
+    transition: background 0.3s ease, color 0.3s ease;
 }
 
 /* Fade-In animation */
@@ -38,10 +63,10 @@ body {
     top: 0;
     width: 100%;
     z-index: 1000;
-    background: linear-gradient(90deg, #556b2f, #c6a961);
     padding: 10px 20px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     transition: background-color 0.3s ease;
+    background: var(--footer-bg);
+    box-shadow: 0 4px 10px var(--shadow-color);
 }
 
 /* .navbar .navbar-brand {
@@ -108,7 +133,7 @@ body {
 
 /* Navigation links */
 .nav-link {
-    color: #fff !important;
+    color: var(--text-color) !important;
     font-size: 1.1rem;
     font-weight: 500;
     position: relative;
@@ -133,6 +158,7 @@ body {
 
 .nav-link:hover::after {
     width: 100%;
+    background: var(--link-hover);
 }
 
 /* Offcanvas Menu */
@@ -163,15 +189,15 @@ body {
 
 /* aboutme Section - Modern Style */
 #aboutme {
-    background: #c6a9618e; /* Color accents */
-    color: #f8f5f2; /* Light text */
     border-radius: 20px;
     width:99%;
     padding: 60px 20px;
     text-align: center;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
     animation: fadeIn 1.2s ease-in-out;
     align-self: center;
+    background: var(--secondary-color);
+    color: var(--text-color);
+    box-shadow: 0 10px 20px var(--shadow-color);
 }
 
 /* Style pour l'image */
@@ -316,12 +342,12 @@ footer {
     bottom: 0;
     width: 100%;
     z-index: 1000;
-    background: linear-gradient(90deg, #556b2f, #c6a961);
     padding: 10px 20px;
     box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);
-    color: white;
     text-align: center;
     font-size: 14px;
+    background: var(--footer-bg);
+    color: var(--text-color);
 }
 
 footer a {
@@ -350,6 +376,8 @@ footer a:hover {
     }
 }
 .card{
+    background-color: var(--card-bg);
+    box-shadow: 0px 0px 10px 1px var(--shadow-color);
     border:#556b2f solid 1px;
 }
 .card-img-top{
@@ -552,4 +580,40 @@ span{
     background-color: #c6a961;
 }
 
-  
+#theme-toggle {
+    background: transparent;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: var(--text-color);
+    transition: color 0.3s ease;
+}
+
+#theme-toggle:hover {
+    color: var(--secondary-color);
+}
+
+
+.dark-mode #hb,
+.dark-mode #hc,
+.dark-mode #l,
+.dark-mode #f,
+.dark-mode #b,
+.dark-mode #t,
+.dark-mode #p,
+.dark-mode #a,
+.dark-mode #en,
+.dark-mode #fr,
+.dark-mode #o,
+.dark-mode #m,
+.dark-mode #sp {
+    background-color: #333; /* Fond sombre pour les listes */
+    color: #f8f5f2; /* Texte clair dans les listes */
+    border-radius: 8px; /* Coins arrondis pour un meilleur effet visuel */
+    padding: 10px;
+}
+
+
+
+
+
